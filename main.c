@@ -257,8 +257,10 @@ void localAdmin(int a) {
 	clearScreen(30);
 	if (a == 1) {
 		printf("Enabling Local Admin Account");
+		system("net user administrator /active:yes");
 	} else if (a == 2) {
 		printf("Disabling Local Admin Account");
+		system("net user administrator /active:no");
 	} else {
 		return;
 	}
