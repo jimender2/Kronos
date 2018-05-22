@@ -19,7 +19,7 @@ void startup();
 void help();
 
 /* Commands */
-void ping();
+void ping(int);
 void addWifi(int);
 void networkReset();
 void newIP();
@@ -119,9 +119,9 @@ void networking() {
 		printf("1: Network Reset                          \n");
 		printf("2: Wifi Passwords                         \n");
 		printf("3: Ping Google                            \n");
-		printf("4: Ping 123                               \n");
-		printf("5: New IP Address                         \n");
-		printf("6: \n");
+		printf("4: Ping 121                               \n");
+		printf("5: Ping 123                               \n");
+		printf("6: New IP Address                         \n");
 		printf("7: \n");
 		printf("8: \n");
 		printf("9: Help                                   \n");
@@ -135,15 +135,15 @@ void networking() {
 		} else if (option == 1) {
 			networkReset();
 		} else if (option == 2) {
-			wifi();
+			wifi(2);
 		} else if (option == 3) {
-			ping();
+			ping(1);
 		} else if (option == 4) {
-			ping();
+			ping(2);
 		} else if (option == 5) {
-			newIP();
+			ping(3);
 		} else if (option == 6) {
-			return;
+			newIP();
 		} else if (option == 7) {
 			return;
 		} else if (option == 8) {
@@ -208,12 +208,29 @@ void domain() {
 
 }
 
-void wifi() {
-	
+void wifi(int a) {
+	if (a == 1) {
+		system("netsh wlan set hostednetwork mode=allow ssid=”Testing” key=””");
+	} else if (a == 2) {
+		system("netsh wlan set hostednetwork mode=allow ssid=”iPad” key=”donottouch”");
+	} else {
+		return;
+	}
+	system("pause");
 }
 
-void ping() {
-	system("ping www.google.com");
+void ping(int a) {
+	if (a == 1) {
+		system("ping www.google.com");
+	} else if (a == 2) {
+		system("ping 10.22.0.121");
+	} else if (a == 3) {
+		system("ping 10.22.0.123");
+	} else {
+		return;
+	}
+	system("pause");
+	return;
 }
 
 void clearScreen(int numberOfTimes) {
@@ -236,7 +253,10 @@ void help() {
 }
 
 void newIP() {
-	
+	clearScreen(30);
+	printf("Releasing old IP and requesting new IP");
+	system("ipconfig /renew");
+	system("pause");
 }
 
 void networkReset() {
@@ -265,6 +285,7 @@ void localAdmin(int a) {
 		return;
 	}
 	printf("Done");	
+	system("pause");
 	return;
 }
 
