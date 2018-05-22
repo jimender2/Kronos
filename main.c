@@ -109,48 +109,52 @@ void home() {
 }
 
 void networking() {
-	clearScreen(30);
-	logo();
-	printf("0: Go to previous menu                    \n");
-	printf("1: Network Reset                          \n");
-	printf("2: Wifi Passwords                         \n");
-	printf("3: Ping Google                            \n");
-	printf("4: Ping 123                               \n");
-	printf("5: New IP Address                         \n");
-	printf("6: \n");
-	printf("7: \n");
-	printf("8: \n");
-	printf("9: Help                                   \n");
-
-	printf("Please enter your selection: ");
-	
 	int option;
-	scanf( "%d", &option );
+	option = 10;
+	while (option != 0) {
 	
-	if (option == 0){
-		return;
-	} else if (option == 1) {
-		networkReset();
-	} else if (option == 2) {
-		wifi();
-	} else if (option == 3) {
-		ping();
-	} else if (option == 4) {
-		ping();
-	} else if (option == 5) {
-		newIP();
-	} else if (option == 6) {
-		return;
-	} else if (option == 7) {
-		return;
-	} else if (option == 8) {
-		return;
-	} else if (option == 9) {
-		help();
-	} else {
-		return;
+		clearScreen(30);
+		logo();
+		printf("0: Go to previous menu                    \n");
+		printf("1: Network Reset                          \n");
+		printf("2: Wifi Passwords                         \n");
+		printf("3: Ping Google                            \n");
+		printf("4: Ping 123                               \n");
+		printf("5: New IP Address                         \n");
+		printf("6: \n");
+		printf("7: \n");
+		printf("8: \n");
+		printf("9: Help                                   \n");
+
+		printf("Please enter your selection: ");
+		
+		scanf( "%d", &option );
+		
+		if (option == 0){
+			return;
+		} else if (option == 1) {
+			networkReset();
+		} else if (option == 2) {
+			wifi();
+		} else if (option == 3) {
+			ping();
+		} else if (option == 4) {
+			ping();
+		} else if (option == 5) {
+			newIP();
+		} else if (option == 6) {
+			return;
+		} else if (option == 7) {
+			return;
+		} else if (option == 8) {
+			return;
+		} else if (option == 9) {
+			help();
+		} else {
+			return;
+		}
+		
 	}
-	
 	return;
 }
 
