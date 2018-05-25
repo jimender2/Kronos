@@ -1,1 +1,4 @@
 # Kronos
+Todo
+wifi
+accounts
