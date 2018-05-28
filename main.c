@@ -15,6 +15,8 @@ void networking();
 void userAccounts();
 void domain();
 void wifi();
+void updates();
+void remote();
 void startup();
 void help();
 
@@ -28,7 +30,9 @@ void resetAccount();
 void localAdmin(int);
 void lookupAccount();
 void installedPrograms();
+void remotePS(int);
 void computerName();
+void updatesCSV();
 
 /* Utility */
 void clearScreen(int);
@@ -68,8 +72,8 @@ void home() {
 		printf("1: Networking                             \n");
 		printf("2: User Accounts                          \n");
 		printf("3: Add to Domain                          \n");
-		printf("4: \n");
-		printf("5: \n");
+		printf("4: Updates                                \n");
+		printf("5: Remote Powershell                      \n");
 		printf("6: \n");
 		printf("7: \n");
 		printf("8: \n");
@@ -87,11 +91,11 @@ void home() {
 		} else if (option == 3) {
 			domain();
 		} else if (option == 4) {
-			return;
+			updates();
 		} else if (option == 5) {
-			return;
+			remote();
 		} else if (option == 6) {
-			return;
+			installedPrograms();
 		} else if (option == 7) {
 			return;
 		} else if (option == 8) {
@@ -108,11 +112,112 @@ void home() {
 
 }
 
-void networking() {
+void remote() {
+	int option;
+	option = 10;
+	while (option != 0) {
+
+		clearScreen(30);
+		logo();
+		printf("0: Go to previous menu                    \n");
+		printf("1: Enable Remote PS                       \n");
+		printf("2: Disable Remote PS                      \n");
+		printf("3: \n");
+		printf("4: \n");
+		printf("5: \n");
+		printf("6: \n");
+		printf("7: \n");
+		printf("8: \n");
+		printf("9: Help                                   \n");
+
+		printf("Please enter your selection: ");
+
+		scanf( "%d", &option );
+
+		if (option == 0){
+			return;
+		} else if (option == 1) {
+			remotePS(1);
+		} else if (option == 2) {
+			remotePS(2);
+		} else if (option == 3) {
+			return;
+		} else if (option == 4) {
+			return;
+		} else if (option == 5) {
+			return;
+		} else if (option == 6) {
+			return;
+		} else if (option == 7) {
+			return;
+		} else if (option == 8) {
+			return;
+		} else if (option == 9) {
+			help();
+		} else {
+			return;
+		}
+
+	}
+	return;
+}
+
+
+void updates() {
 	int option;
 	option = 10;
 	while (option != 0) {
 	
+		clearScreen(30);
+		logo();
+		printf("0: Go to previous menu                    \n");
+		printf("1: List Updates                           \n");
+		printf("2: \n");
+		printf("3: \n");
+		printf("4: \n");
+		printf("5: \n");
+		printf("6: \n");
+		printf("7: \n");
+		printf("8: \n");
+		printf("9: Help                                   \n");
+
+		printf("Please enter your selection: ");
+		
+		scanf( "%d", &option );
+		
+		if (option == 0){
+			return;
+		} else if (option == 1) {
+			updatesCSV();
+		} else if (option == 2) {
+			return;
+		} else if (option == 3) {
+			return;
+		} else if (option == 4) {
+			return;
+		} else if (option == 5) {
+			return;
+		} else if (option == 6) {
+			return;
+		} else if (option == 7) {
+			return;
+		} else if (option == 8) {
+			return;
+		} else if (option == 9) {
+			help();
+		} else {
+			return;
+		}
+
+	}
+	return;
+}
+
+void networking() {
+	int option;
+	option = 10;
+	while (option != 0) {
+
 		clearScreen(30);
 		logo();
 		printf("0: Go to previous menu                    \n");
@@ -127,9 +232,9 @@ void networking() {
 		printf("9: Help                                   \n");
 
 		printf("Please enter your selection: ");
-		
+
 		scanf( "%d", &option );
-		
+
 		if (option == 0){
 			return;
 		} else if (option == 1) {
@@ -259,6 +364,24 @@ void newIP() {
 	system("pause");
 }
 
+void remotePS(int a) {
+	if (a == 1) {
+		/*powershell*/
+		system("powershell -Command \"&set-service winrm -startuptype automatic\"");
+		system("powershell -Command \"&Enable-PSRemoting -Force\"");
+	} else if (a == 2) {
+		/*powershell*/
+		system("powershell -Command \"&set-service winrm -startuptype Disabled\"");
+		system("powershell -Command \"&Disable-PSRemoting -Force\"");
+	} else if (a == 3) {
+		system("ping 10.22.0.123");
+	} else {
+		return;
+	}
+	system("pause");
+	return;
+}
+
 void networkReset() {
 	
 }
@@ -271,6 +394,17 @@ void createAccount() {
 void resetAccount() {
 	clearScreen(30);
 	printf("Resetting account");
+}
+
+void updatesCSV() {
+	clearScreen(30);
+	/*powershell*/
+	/*$Session = New-Object -ComObject "Microsoft.Update.Session";$Searcher = $Session.CreateUpdateSearcher();$historyCount = $Searcher.GetTotalHistoryCount();$Searcher.QueryHistory(0, $historyCount) | Select-Object Date,@{name="Operation"; expression={switch($_.operation){1 {"Installation"}; 2 {"Uninstallation"}; 3 {"Other"}}}}, @{name="Status"; expression={switch($_.resultcode){1 {"In Progress"}; 2 {"Succeeded"}; 3 {"Succeeded With Errors"};4 {"Failed"}; 5 {"Aborted"} }}}, Title, Description | Export-Csv "$Env:userprofile\Desktop\Windows Updates.csv"*/
+	system("powershell -Command \"& $Session = New-Object -ComObject \"Microsoft.Update.Session\";$Searcher = $Session.CreateUpdateSearcher();$historyCount = $Searcher.GetTotalHistoryCount();$Searcher.QueryHistory(0, $historyCount) | Select-Object Date,@{name=\"Operation\"; expression={switch($_.operation){1 {\"Installation\"}; 2 {\"Uninstallation\"}; 3 {\"Other\"}}}}, @{name=\"Status\"; expression={switch($_.resultcode){1 {\"In Progress\"}; 2 {\"Succeeded\"}; 3 {\"Succeeded With Errors\"};4 {\"Failed\"}; 5 {\"Aborted\"} }}}, Title, Description | Export-Csv \"Windows Updates.csv\"\"");
+	printf("Check Desktop for the csv file");
+	printf("Done");
+	system("pause");
+	return;
 }
 
 void localAdmin(int a) {
@@ -297,7 +431,8 @@ void lookupAccount() {
 void installedPrograms() {
 	clearScreen(30);
 	printf("Showing all installed programs");
-	system("Get-ItemProperty HKLM:\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table â€“AutoSize");
+	printf("\n");
+	system("powershell -Command \"&Get-ItemProperty HKLM:\\Software\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table –AutoSize >installedPrograms.txt\"");
 	system("pause");
 }
 
