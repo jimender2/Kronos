@@ -95,7 +95,7 @@ void home() {
 		} else if (option == 5) {
 			remote();
 		} else if (option == 6) {
-			installedPrograms();
+			return;
 		} else if (option == 7) {
 			return;
 		} else if (option == 8) {
