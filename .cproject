@@ -81,27 +81,24 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release.1067721191" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.mingw.exe.release.1333298007.987668498" name="main.c" rcbsApplicability="disable" resourcePath="main.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1790483453.56151231">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1790483453.56151231" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1790483453"/>
-					</fileInfo>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="Kronos.cdt.managedbuild.target.gnu.mingw.exe.687010675" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
-	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.1333298007;cdt.managedbuild.config.gnu.mingw.exe.release.1333298007.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1790483453;cdt.managedbuild.tool.gnu.c.compiler.input.1715235790">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1490751791;cdt.managedbuild.config.gnu.mingw.exe.debug.1490751791.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1986484328;cdt.managedbuild.tool.gnu.c.compiler.input.849563487">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
+		<project id="Kronos Light.cdt.managedbuild.target.gnu.mingw.exe.1927527396" name="Executable" projectType="cdt.managedbuild.target.gnu.mingw.exe"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.222601226;cdt.managedbuild.config.gnu.mingw.exe.debug.222601226.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1383786459;cdt.managedbuild.tool.gnu.c.compiler.input.1906943386">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.release.371967841;cdt.managedbuild.config.gnu.mingw.exe.release.371967841.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.1102656839;cdt.managedbuild.tool.gnu.c.compiler.input.1680517733">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
 </cproject>
