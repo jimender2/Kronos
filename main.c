@@ -3,6 +3,7 @@
  *
  *  Created on: May 20, 2018
  *      Author: Jonathan Meredith
+ *      Menu application
  */
 
 #include <stdio.h>
